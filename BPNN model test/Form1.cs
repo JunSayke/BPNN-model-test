@@ -17,8 +17,8 @@ namespace BPNN_model_test
 
         public Form1()
         {
-            MessageBox.Show("This is a 4 input \"AND Gate\" in Neural Network Back-Propagation.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
             InitializeComponent();
+            MessageBox.Show("This is a 4 input \"AND Gate\" in Neural Network Back-Propagation.", "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace BPNN_model_test
             // Create a neural network with 4 inputs, 2 hidden neurons, and 1 output neuron
             // Rule of Thumb in determining the number of hidden neurons: ((2/3)*input_size)+output_size.
             // https://www.heatonresearch.com/2017/06/01/hidden-layers.html
-            nn = new NeuralNet(4, 3, 1); // 50 Hidden Neuron is quite good
+            nn = new NeuralNet(4, 1, 1); // according to the rule of thumb it is 3
             MessageBox.Show("Neural Network has been initialized!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
