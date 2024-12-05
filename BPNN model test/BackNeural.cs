@@ -116,6 +116,7 @@ namespace Backprop
 			}
 		}
 
+		// Calculate the Mean Squared Error - HUNYO
 		public double getMSE()
 		{
             double mse = 0.0;

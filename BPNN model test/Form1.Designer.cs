@@ -74,6 +74,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(200, 23);
             textBox1.TabIndex = 3;
+            textBox1.Text = "1";
             // 
             // textBox2
             // 
@@ -81,6 +82,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(200, 23);
             textBox2.TabIndex = 4;
+            textBox2.Text = "1";
             // 
             // textBox3
             // 
@@ -88,6 +90,7 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(200, 23);
             textBox3.TabIndex = 5;
+            textBox3.Text = "1";
             // 
             // textBox4
             // 
@@ -95,13 +98,16 @@
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(200, 23);
             textBox4.TabIndex = 6;
+            textBox4.Text = "1";
             // 
             // textBox5
             // 
+            textBox5.Enabled = false;
             textBox5.Location = new Point(421, 143);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(200, 23);
             textBox5.TabIndex = 7;
+            textBox5.Text = "output";
             // 
             // Form1
             // 
