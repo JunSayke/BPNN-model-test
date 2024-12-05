@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace Backprop
@@ -8,7 +9,7 @@ namespace Backprop
 		private INeuron [] ineuron;//approximatelty 3072
 		private HNeuron [] hneuron;// approx 64
 		private ONeuron [] oneuron;//approx 10
-		private const double LRPOUT =0.2;//learning rate for the the ouptput layer
+		private const double LRPOUT = 0.2;//learning rate for the the ouptput layer
 		private const double LRPIN = 0.15;// learning rate for the input layer
 		private double [] errorComponent; // approx 10;
 		private double [] errorDerivative;
@@ -114,11 +115,24 @@ namespace Backprop
 				errorDerivative[x]=oneuron[x].getOActivation()*(1-(oneuron[x].getOActivation()))*errorComponent[x];
 			}
 		}
-		public void learn()
+
+		public double getMSE()
+		{
+            double mse = 0.0;
+            for (int i = 0; i < oneuron.Length; i++)
+            {
+                mse += Math.Pow(errorComponent[i], 2);  // Square the error
+            }
+            mse /= oneuron.Length;  // Average the squared errors
+            return mse;
+        }
+
+        public void learn()
 		{// trainning session
 			this.run();
 			this.calculateEC();
-			this.calculateDER();
+
+            this.calculateDER();
 			for(int x=0;x<hneuron.Length;x++)//calculates the errors of every neuron in the 2 layer
 				hneuron[x].calculateErr(errorDerivative);
 			for(int x=0;x<hneuron.Length;x++)//change in the weights in the 2 to ouput
@@ -149,7 +163,8 @@ namespace Backprop
 			bool result=true;
 			for(int x=0;x<oneuron.Length;x++)
 			{
-				if((errorComponent[x]-errorDerivative[x])!=0)
+				//Debug.WriteLine("Count Good: " + (errorComponent[x] - errorDerivative[x]));
+				if ((errorComponent[x] - errorDerivative[x]) != 0)
 					result=false;
 			}
 			return result;
